@@ -11,9 +11,10 @@ source ./_repo_vars.sh
 echo "Running project ${PROJECT_NAME}"
 
 docker run --rm -it \
+  -e "PYTHONPYCACHEPREFIX:/tmp/__python_cache_dir__" \
   -v $(pwd):/maindir \
   -w /maindir \
-  ${BUILD_IMAGE_NAME} python3 ./src/main.py
+  ${BUILD_IMAGE_NAME_AND_TAG} python3 ./src/main.py
 DOCKER_RUN_RES=$?
 if [[ ${DOCKER_RUN_RES} -ne 0 ]]; then
   echo "Running app errored - ${DOCKER_RUN_RES}"
