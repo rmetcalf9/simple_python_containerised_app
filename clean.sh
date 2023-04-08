@@ -2,4 +2,4 @@
 
 source ./_repo_vars.sh
 
-docker image rm ${PYTHON_IMAGE}
+docker image rm ${BUILD_IMAGE_NAME_AND_TAG}

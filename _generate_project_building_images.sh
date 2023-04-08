@@ -8,8 +8,6 @@ if [[ ! "$(docker images -q ${BUILD_IMAGE_NAME_AND_TAG} 2> /dev/null)" == "" ]];
   fi
 fi
 
-echo TODO CREATE IMAGE ${BUILD_IMAGE_NAME}
-
 CUR_DIR=$(pwd)
 cd ./build_image
 docker build -t ${BUILD_IMAGE_NAME_AND_TAG} --build-arg PYTHON_IMAGE=${PYTHON_IMAGE} .
