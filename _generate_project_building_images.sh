@@ -9,7 +9,6 @@ if [[ ! "$(docker images -q ${BUILD_IMAGE_NAME_AND_TAG} 2> /dev/null)" == "" ]];
   fi
 fi
 
-echo "DD"
 docker pull ${PYTHON_IMAGE}
 
 CUR_DIR=$(pwd)
