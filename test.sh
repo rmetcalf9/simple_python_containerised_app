@@ -11,7 +11,7 @@ source ./_repo_vars.sh
 echo "Testing project ${PROJECT_NAME}"
 
 docker run --rm -it \
-  -e "PYTHONPYCACHEPREFIX:/tmp/__python_cache_dir__" \
+  -e "PYTHONPYCACHEPREFIX=/tmp/__python_cache_dir__" \
   -v $(pwd):/maindir \
   -w /maindir \
   ${BUILD_IMAGE_NAME_AND_TAG} python3 -m pytest -p no:cacheprovider
