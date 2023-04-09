@@ -13,6 +13,11 @@ docker pull ${PYTHON_IMAGE}
 
 CUR_DIR=$(pwd)
 cd ./build_image
+
+echo "Creating combined requirements file"
+cp ./requirements.txt ./not_in_git_combined_requirements.txt
+cat ${CUR_DIR}/requirements.txt >> ./not_in_git_combined_requirements.txt
+
 docker build -t ${BUILD_IMAGE_NAME_AND_TAG} --build-arg PYTHON_IMAGE=${PYTHON_IMAGE} .
 DOCKER_BUIlD_RES=$?
 if [[ ${DOCKER_BUILD_RES} -ne 0 ]]; then
